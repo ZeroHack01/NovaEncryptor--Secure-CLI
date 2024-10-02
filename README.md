@@ -2,8 +2,9 @@
 NovaEncryptor
 
 NovaEncryptor is a command-line encryption tool designed to provide secure encryption and decryption using a hybrid approach combining AES-256 (Advanced Encryption Standard) for message encryption and RSA-2048 for securely encrypting the AES keys. The tool uses AES-256 for strong encryption of messages and RSA to ensure secure key management.
-Features
 
+
+Features
     AES-256 Encryption: Encrypts your messages with a 256-bit AES key, one of the most secure encryption algorithms available.
     RSA-2048 Key Pair: Secures the AES key using RSA-2048, providing secure key exchange.
     Hybrid Encryption: Combines the speed of AES for message encryption with the security of RSA for key exchange.
@@ -11,7 +12,6 @@ Features
     Automatic Key Generation: If RSA keys are not found, NovaEncryptor automatically generates new RSA public and private keys for secure communication.
 
 Requirements
-
 Before running NovaEncryptor, ensure that you have installed the following dependencies:
 
     Python 3.7+
@@ -19,7 +19,6 @@ Before running NovaEncryptor, ensure that you have installed the following depen
     pyfiglet for ASCII art display
 
 You can install the required packages by running:
-
 bash
 
 pip install pycryptodome pyfiglet
