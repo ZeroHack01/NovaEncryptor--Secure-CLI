@@ -1,139 +1,322 @@
-# NovaEncryptor--Secure-CLI
-NovaEncryptor
+# 🔐 NovaEncryptor - Secure CLI Encryption Tool
 
-NovaEncryptor is a command-line encryption tool designed to provide secure encryption and decryption using a hybrid approach combining AES-256 (Advanced Encryption Standard) for message encryption and RSA-2048 for securely encrypting the AES keys. The tool uses AES-256 for strong encryption of messages and RSA to ensure secure key management.
+<div align="center">
 
+![NovaEncryptor Logo](https://img.shields.io/badge/NovaEncryptor-Secure%20CLI-blue?style=for-the-badge&logo=shield&logoColor=white)
 
-Features
-    AES-256 Encryption: Encrypts your messages with a 256-bit AES key, one of the most secure encryption algorithms available.
-    RSA-2048 Key Pair: Secures the AES key using RSA-2048, providing secure key exchange.
-    Hybrid Encryption: Combines the speed of AES for message encryption with the security of RSA for key exchange.
-    Authenticated Encryption (AES-EAX Mode): Ensures both confidentiality and data integrity, protecting the encrypted message from tampering.
-    Automatic Key Generation: If RSA keys are not found, NovaEncryptor automatically generates new RSA public and private keys for secure communication.
+[![Python Version](https://img.shields.io/badge/Python-3.7+-blue.svg?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Security](https://img.shields.io/badge/Security-AES%20256%20%2B%20RSA%202048-red.svg?style=flat-square&logo=security&logoColor=white)](https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square)](https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI)
 
-Requirements
-Before running NovaEncryptor, ensure that you have installed the following dependencies:
+**A powerful command-line encryption tool that combines military-grade AES-256 encryption with RSA-2048 key management for ultimate security.**
 
-    Python 3.7+
-    pycryptodome library for cryptography (Crypto module)
-    pyfiglet for ASCII art display
+[🚀 Quick Start](#-quick-start) • [📚 Documentation](#-usage) • [🔧 Installation](#-installation) • [🛡️ Security](#-security-features) • [🤝 Contributing](#-contributing)
 
-You can install the required packages by running:
-bash
+</div>
 
+---
+
+## ✨ Features
+
+🔒 **Military-Grade Encryption**
+- **AES-256** encryption for lightning-fast message security
+- **RSA-2048** for bulletproof key management
+- **Hybrid encryption** combining speed and security
+
+🛡️ **Advanced Security**
+- **EAX mode** for authenticated encryption
+- **Data integrity** protection against tampering
+- **Automatic key generation** with secure defaults
+
+⚡ **Developer Friendly**
+- **Simple CLI interface** for easy integration
+- **Cross-platform compatibility** (Windows, macOS, Linux)
+- **Lightweight** with minimal dependencies
+
+🎨 **Beautiful Interface**
+- **ASCII art** branding with pyfiglet
+- **Clear output formatting** for better readability
+- **Intuitive command structure**
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI.git
+
+# Navigate to directory
+cd NovaEncryptor--Secure-CLI
+
+# Install dependencies
 pip install pycryptodome pyfiglet
 
-Installation
-
-    Clone the Repository: First, clone this repository to your local machine.
-
-    bash
-
-git clone https://github.com/yourusername/novaencryptor.git
-
-Navigate to the Project Directory: Go into the project folder:
-
-bash
-
-cd novaencryptor
-
-Set Up a Python Virtual Environment (Optional but Recommended): It is highly recommended to use a virtual environment to manage dependencies.
-
-bash
-
-python3 -m venv novaenv
-source novaenv/bin/activate  # On Windows use: novaenv\Scripts\activate
-
-Install the Dependencies: Install all the required Python libraries within the virtual environment.
-
-bash
-
-    pip install pycryptodome pyfiglet
-
-Usage
-
-NovaEncryptor allows you to either encrypt a message or decrypt an encrypted message. Follow the steps below:
-Encrypting a Message
-
-To encrypt a message:
-
-    Run the NovaEncryptor script:
-
-    bash
-
+# Run NovaEncryptor
 python3 novaencryptor.py
+```
 
-Select encrypt when prompted:
+---
 
-css
+## 🔧 Installation
 
+### Prerequisites
+
+- **Python 3.7+** (Download from [python.org](https://python.org))
+- **pip** package manager
+
+### Step-by-Step Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI.git
+   cd NovaEncryptor--Secure-CLI
+   ```
+
+2. **Set Up Virtual Environment** (Recommended)
+   ```bash
+   # Create virtual environment
+   python3 -m venv novaenv
+   
+   # Activate virtual environment
+   # On macOS/Linux:
+   source novaenv/bin/activate
+   # On Windows:
+   novaenv\Scripts\activate
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   pip install pycryptodome pyfiglet
+   ```
+
+4. **Verify Installation**
+   ```bash
+   python3 novaencryptor.py
+   ```
+
+---
+
+## 📚 Usage
+
+### 🔐 Encrypting Messages
+
+```bash
+python3 novaencryptor.py
+```
+
+**Interactive Workflow:**
+1. Choose `encrypt` when prompted
+2. Enter your secret message
+3. Receive encrypted output with:
+   - 🔒 Encrypted message (Base64)
+   - 🔑 Encrypted AES key (Base64)
+   - 🎯 Nonce (Base64)
+   - 🏷️ Authentication tag (Base64)
+
+**Example:**
+```
 Enter 'encrypt' to encrypt a message or 'decrypt' to decrypt a message: encrypt
+Enter the message to encrypt: Hello, this is a top secret message!
 
-Enter your message, and the tool will provide the encrypted message, AES key, nonce, and tag:
+Encryption successful!
+Encrypted Message: U2FsdGVkX1+vupppZksvRf5pq5g5XjFRIipRkwB0K1Y=
+Encrypted AES Key: kQiOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Nonce: YWJjZGVmZ2hpams=
+Tag: YWJjZGVmZ2hpamtsbW5vcA==
+```
 
-kotlin
+### 🔓 Decrypting Messages
 
-Enter the message to encrypt: Hello, this is a secure message!
-
-The encrypted message and key will be displayed:
-
-php
-
-    Encryption successful!
-    Encrypted Message: <Base64-encoded ciphertext>
-    Encrypted AES Key: <Base64-encoded AES key>
-    Nonce: <Base64-encoded nonce>
-    Tag: <Base64-encoded tag>
-
-Decrypting a Message
-
-To decrypt an encrypted message:
-
-    Run the NovaEncryptor script:
-
-    bash
-
+```bash
 python3 novaencryptor.py
+```
 
-Select decrypt when prompted:
+**Interactive Workflow:**
+1. Choose `decrypt` when prompted
+2. Input all required components:
+   - Encrypted message
+   - Encrypted AES key
+   - Nonce
+   - Authentication tag
+3. Receive your original message
 
-css
-
+**Example:**
+```
 Enter 'encrypt' to encrypt a message or 'decrypt' to decrypt a message: decrypt
+Enter the encrypted message: U2FsdGVkX1+vupppZksvRf5pq5g5XjFRIipRkwB0K1Y=
+Enter the encrypted AES key: kQiOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Enter the nonce: YWJjZGVmZ2hpams=
+Enter the tag: YWJjZGVmZ2hpamtsbW5vcA==
 
-Input the encrypted message, AES key, nonce, and tag as prompted:
+Decryption successful!
+Decrypted Message: Hello, this is a top secret message!
+```
 
-mathematica
+---
 
-Enter the encrypted message: <Your Base64-encoded ciphertext>
-Enter the encrypted AES key: <Your Base64-encoded AES key>
-Enter the nonce: <Your Base64-encoded nonce>
-Enter the tag: <Your Base64-encoded tag>
+## 🛡️ Security Features
 
-If the inputs are correct, the tool will successfully decrypt and display the original message:
+### Encryption Standards
 
-kotlin
+| Component | Standard | Key Length | Security Level |
+|-----------|----------|------------|----------------|
+| **Message Encryption** | AES-256 | 256-bit | Military Grade |
+| **Key Encryption** | RSA-2048 | 2048-bit | Enterprise Grade |
+| **Authentication** | EAX Mode | N/A | Tamper-Proof |
 
-    Decryption successful!
-    Decrypted Message: Hello, this is a secure message!
+### Security Benefits
 
-Files and Structure
+🔐 **Confidentiality**: AES-256 ensures your messages remain private
+🛡️ **Integrity**: EAX mode detects any tampering attempts  
+🔑 **Key Security**: RSA-2048 protects encryption keys
+⚡ **Performance**: Hybrid approach balances security and speed
+🔄 **Key Management**: Automatic RSA key pair generation
 
-    novaencryptor.py: The main script containing the encryption and decryption logic.
-    rsa_private.pem: The RSA private key file (auto-generated if not found).
-    rsa_public.pem: The RSA public key file (auto-generated if not found).
+---
 
-Security Details
+## 📁 Project Structure
 
-    AES-256: NovaEncryptor uses a 256-bit key length for AES encryption, ensuring a strong level of security.
-    RSA-2048: The tool uses RSA with a 2048-bit key length for encrypting the AES key, which is suitable for most modern security needs.
-    EAX Mode: The AES encryption is performed in EAX mode, providing both encryption and authentication (message integrity).
+```
+NovaEncryptor--Secure-CLI/
+├── 📄 novaencryptor.py      # Main encryption/decryption script
+├── 🔐 rsa_private.pem       # RSA private key (auto-generated)
+├── 🔑 rsa_public.pem        # RSA public key (auto-generated)
+├── 📖 README.md             # Project documentation
+└── 📜 LICENSE               # MIT License
+```
 
-Notes
+---
 
-    Ensure that your RSA private and public keys are securely stored, as losing the private key means you will be unable to decrypt any previously encrypted messages.
-    For enhanced security, consider upgrading to RSA-4096 for long-term protection.
+## ⚙️ Configuration
 
-License
+### Custom RSA Key Length
 
-This project is open-source and available under the MIT License.
+For enhanced security, you can modify the RSA key length in `novaencryptor.py`:
+
+```python
+# Change from RSA-2048 to RSA-4096 for maximum security
+key = RSA.generate(4096)  # Default: 2048
+```
+
+### Environment Variables
+
+Set optional environment variables for enhanced security:
+
+```bash
+export NOVA_KEY_PATH="/secure/path/to/keys/"
+export NOVA_LOG_LEVEL="INFO"
+```
+
+---
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+**❌ ModuleNotFoundError: No module named 'Crypto'**
+```bash
+pip install pycryptodome
+```
+
+**❌ Permission denied when generating keys**
+```bash
+chmod 755 ./
+python3 novaencryptor.py
+```
+
+**❌ Virtual environment activation issues**
+```bash
+# Recreate virtual environment
+rm -rf novaenv
+python3 -m venv novaenv
+source novaenv/bin/activate  # or novaenv\Scripts\activate on Windows
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. **🍴 Fork the repository**
+2. **🌱 Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **💻 Make your changes**
+4. **✅ Test thoroughly**
+5. **📝 Commit your changes** (`git commit -m 'Add amazing feature'`)
+6. **🚀 Push to the branch** (`git push origin feature/amazing-feature`)
+7. **🔄 Open a Pull Request**
+
+### Development Setup
+
+```bash
+# Clone your fork
+git clone https://github.com/yourusername/NovaEncryptor--Secure-CLI.git
+
+# Create development environment
+python3 -m venv dev-env
+source dev-env/bin/activate
+
+# Install development dependencies
+pip install pycryptodome pyfiglet pytest black flake8
+```
+
+---
+
+## 📋 Roadmap
+
+- [ ] 🌐 **Web GUI Interface**
+- [ ] 📱 **Mobile app support**
+- [ ] 🔐 **Quantum-resistant encryption**
+- [ ] 📊 **Batch file processing**
+- [ ] 🌩️ **Cloud key management**
+- [ ] 🔌 **Plugin architecture**
+
+---
+
+## ⚠️ Security Considerations
+
+- 🔒 **Store RSA keys securely** - losing the private key means permanent data loss
+- 🔄 **Regular key rotation** recommended for production use
+- 🛡️ **Consider RSA-4096** for long-term security requirements
+- 📝 **Keep encrypted outputs safe** - they contain sensitive data
+- 🚫 **Never share private keys** or store them in version control
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+**ZeroHack01**
+- 🐙 GitHub: [@ZeroHack01](https://github.com/ZeroHack01)
+- 📧 Email: [Contact via GitHub](https://github.com/ZeroHack01)
+
+---
+
+## 🙏 Acknowledgments
+
+- 🔐 **PyCryptodome** team for the excellent cryptography library
+- 🎨 **PyFiglet** for ASCII art capabilities
+- 🛡️ **Security community** for best practices and standards
+- 🌟 **Contributors** who help improve this project
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you find it helpful!**
+
+[![GitHub stars](https://img.shields.io/github/stars/ZeroHack01/NovaEncryptor--Secure-CLI?style=social)](https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ZeroHack01/NovaEncryptor--Secure-CLI?style=social)](https://github.com/ZeroHack01/NovaEncryptor--Secure-CLI/network)
+
+---
+
+**🔐 Secure your data with NovaEncryptor - Because your privacy matters**
+
+</div>
