@@ -244,7 +244,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Reporting Security Issues
 
-Please report security vulnerabilities to: [security@yourproject.com](mailto:security@yourproject.com)
+Please report security vulnerabilities to: [mongwoiching2080@gmail.com](mailto:mongwoiching2080@gmail.com)
 
 **Do not report security issues through public GitHub issues.**
 
