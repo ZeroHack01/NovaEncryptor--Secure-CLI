@@ -165,3 +165,13 @@ Thumbs.db
 secrets.txt
 .env.local
 .env.production
+# Virtual Environments - Never commit these!
+nova_env/
+venv/
+env/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
